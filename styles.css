@@ -1,0 +1,358 @@
+:root {
+  --bg: #edd9ea;
+  --pink: #f0bfcf;
+  --soft: #fff0f6;
+  --lavender: #e9e0ff;
+  --muted: #6f586f;
+  --accent: #ff6f99;
+  --glass: rgba(255, 255, 255, 0.92);
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family:
+    "Merriweather",
+    Poppins,
+    system-ui,
+    Segoe UI,
+    Arial,
+    sans-serif;
+  background: radial-gradient(
+    circle at 50% 35%,
+    #ffd6e8 0%,
+    #f7e0ef 28%,
+    #f6ecf6 55%,
+    #fbf7fb 100%
+  );
+  color: #3b2633;
+}
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+#app {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.panel {
+  display: none;
+  width: 100%;
+  max-width: 920px;
+  margin: auto;
+}
+.panel.active {
+  display: block;
+}
+.card {
+  background: linear-gradient(180deg, var(--glass), #fff);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 12px 36px rgba(80, 30, 70, 0.12);
+  backdrop-filter: blur(6px);
+}
+.intro-card {
+  max-width: 720px;
+  text-align: center;
+  padding: 48px;
+  margin: auto;
+}
+.intro-card h1 {
+  font-family: "Dancing Script", Poppins, serif;
+  font-size: 2.1rem;
+  margin: auto;
+  color: #5a2a49;
+}
+h1 {
+  margin: 0;
+}
+.name {
+  color: var(--accent);
+  font-weight: 700;
+}
+.lead {
+  color: var(--muted);
+  margin-top: 10px;
+}
+.controls {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  background: var(--accent);
+  color: white;
+  border: 0;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s;
+  box-shadow: 0 6px 18px rgba(255, 122, 162, 0.12);
+}
+.btn:active {
+  transform: translateY(2px);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: none;
+  border: 1px solid rgba(255, 122, 162, 0.14);
+}
+.floating-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.floating-particle {
+  position: fixed;
+  left: 50%;
+  top: 70%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, #ffd6e8 60%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+.typed {
+  min-height: 160px;
+  font-size: 1.05rem;
+  color: #3d2b38;
+  line-height: 1.6;
+}
+.typed p {
+  margin: 0 0 12px 0;
+}
+.typed p.highlight {
+  background: linear-gradient(90deg, #fff7fb, #fff1f6);
+  border-left: 4px solid var(--accent);
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(120, 40, 80, 0.06);
+  color: #402536;
+  font-family: "Merriweather", serif;
+  font-size: 1.02rem;
+}
+.container {
+  padding: 30px;
+}
+.next-row {
+  text-align: center;
+  margin-top: 18px;
+}
+img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+.lucky-row {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  color: #5a2a49;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  padding: 18px;
+}
+.pill {
+  background: linear-gradient(90deg, var(--soft), #fff);
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  color: #4a3646;
+  box-shadow: 0 8px 18px rgba(80, 40, 80, 0.06);
+}
+.envelope {
+  width: 160px;
+  height: 110px;
+  margin: 20px auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope .flap {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff7fb, #ffeef6);
+  box-shadow: 0 6px 18px rgba(80, 40, 80, 0.06);
+  transform-origin: top center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.envelope.open .flap {
+  transform: rotateX(180deg) translateY(-6px);
+}
+.letter-content {
+  max-width: 720px;
+  margin: 3vw auto;
+  padding: 18px;
+  color: #3f2b36;
+}
+.letter-content.hidden {
+  display: none;
+}
+.big-letter {
+  padding-top: 10px;
+}
+.ending-card {
+  text-align: center;
+}
+.final-lines p {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
+}
+.final-lines p.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.big {
+  font-family: "Dancing Script", Poppins, serif;
+  color: #5a2a49;
+}
+.heart-burst {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.panel.active.opening {
+  animation: panelFadeIn 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+@keyframes panelFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* small responsive */
+@media (max-width: 840px) {
+  .panel {
+    padding: 12px;
+  }
+  .card {
+    padding: 18px;
+  }
+  .intro-card {
+    padding: 22px;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .intro-card h1 {
+    font-size: 1.4rem;
+  }
+  .typed {
+    font-size: 0.98rem;
+  }
+}
+
+/* subtle sparkle dots */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+.star-overlay {
+  position: fixed;
+  inset: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* floating lights animation */
+.floating-lights::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff8 0%, transparent 60%);
+  filter: blur(8px);
+  opacity: 0.6;
+  transform: translateX(-50%);
+  animation: rise 6s infinite ease-in;
+}
+@keyframes rise {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-600px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* heart animation */
+.heart {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+}
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff9ab8, #ff6f94);
+}
+.heart:before {
+  top: 0;
+  left: 6px;
+}
+.heart:after {
+  left: 0;
+  top: 6px;
+}
+
+/* small helper */
+.center {
+  text-align: center;
+}
+
+/* music toggle */
+#musicToggle {
+  font-size: 0.9rem;
+}

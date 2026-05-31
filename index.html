@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dành cho Lê Huyền Diệu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="stars"></canvas>
+    <audio id="bgMusic" loop>
+      <source
+        src="4 Mùa Thương Em (Lofi Lyrics) - Lập Nguyên x Night T _ Thương em khi mùa thu thương em sang mùa hạ.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <div id="app">
+      <!-- Intro Screen -->
+      <section id="intro" class="panel active">
+        <div class="card intro-card">
+          <h1>
+            Trang web này dành cho<br /><span class="name">Lê Huyền Diệu</span>
+            ❤️
+          </h1>
+          <p class="lead">
+            Có lẽ đây là món quà đặc biệt nhất mà tớ từng làm cho một người.
+          </p>
+          <div class="controls">
+            <button id="startBtn" class="btn">Bắt đầu nhé ✨</button>
+            <button id="musicToggle" class="btn ghost">Nhạc nền: Tắt</button>
+          </div>
+        </div>
+        <div class="floating-lights" aria-hidden></div>
+      </section>
+
+      <!-- Wishes (typewriter) -->
+      <section id="wishes" class="panel">
+        <div class="container card">
+          <div id="typed" class="typed"></div>
+          <div class="next-row">
+            <button class="btn" data-next="exam">Tiếp tục</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exam letter -->
+      <section id="exam" class="panel">
+        <div class="container card letter">
+          <h2>Chúng ta đang đứng trước một cánh cửa mới 📚</h2>
+          <div class="letter-body">
+            <p>Chỉ còn một khoảng thời gian ngắn nữa thôi.</p>
+            <p>
+              Kỳ thi mà chúng ta đã cố gắng suốt bao năm sẽ chính thức bắt đầu.
+            </p>
+            <p>Tớ biết cậu đã rất áp lực.</p>
+            <p>Có những ngày mệt mỏi.</p>
+            <p>Có những ngày muốn bỏ cuộc.</p>
+            <p>Nhưng cậu đã đi được đến đây rồi.</p>
+            <p>Và điều đó đã rất đáng tự hào.</p>
+            <p>
+              Tớ mong rằng khi bước vào phòng thi, cậu sẽ mang theo sự tự tin,
+              bình tĩnh và một chút may mắn.
+            </p>
+            <p>Tớ tin cậu sẽ làm được.</p>
+            <p>Thật sự tin.</p>
+          </div>
+          <div class="lucky-row">
+            🍀 <span class="small">Gởi chút may mắn</span>
+          </div>
+          <div class="next-row">
+            <button class="btn" data-next="confide">Tiếp tục</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Confide -->
+      <section id="confide" class="panel">
+        <div class="container card">
+          <h2>Có vài điều tớ muốn nói...</h2>
+          <p>
+            Ban đầu tớ cũng không nghĩ rằng cậu sẽ trở nên đặc biệt như vậy.
+          </p>
+          <p>Chúng ta gặp nhau khá tình cờ.</p>
+          <p>Nói chuyện với nhau cũng rất tự nhiên.</p>
+          <p>Nhưng rồi dần dần...</p>
+          <p>Tớ bắt đầu quen với việc kể cho cậu nghe về một ngày của mình.</p>
+          <p>Quen với việc chờ những tin nhắn từ cậu.</p>
+          <p>Quen với việc vui hơn khi thấy cậu xuất hiện.</p>
+          <p>
+            Và rồi tớ nhận ra rằng, cậu đã trở thành một phần quan trọng trong những
+            ngày của tớ.
+          </p>
+          <p>hì hì</p>
+          <div class="next-row">
+            <button class="btn" data-next="likes">
+              Xem những điều tớ thích ở cậu
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Likes cards -->
+      <section id="likes" class="panel">
+        <div class="container">
+          <h2 class="center">Những điều tớ thích ở cậu</h2>
+          <div class="grid card">
+            <div class="pill">Cách cậu nói chuyện</div>
+            <div class="pill">Sự "thân thiện" của cậu</div>
+            <div class="pill">Những lần cậu "mắng yêu tớ"</div>
+            <div class="pill">Sự cố gắng trong học tập</div>
+            <div class="pill">Nụ cười của cậu</div>
+            <div class="pill">Cảm giác thoải mái khi nói chuyện cùng cậu</div>
+            <div class="pill">Và rất nhiều điều khác</div>
+          </div>
+          <div class="next-row">
+            <button class="btn" data-next="special">
+              Mở phong thư đặc biệt
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special letter -->
+      <section id="special" class="panel">
+        <div class="container card letter big-letter">
+          <div class="envelope" id="envelope">
+            <img src="hamster feliz.jfif" alt="">
+          </div>
+          <div class="letter-content hidden" id="letterContent">
+            <p>Nếu có người hỏi điều gì khiến tớ nhớ đến cậu.</p>
+            <p>Có lẽ tớ sẽ không trả lời được bằng một lý do cụ thể.</p>
+            <p>
+              Vì đôi khi một người trở nên đặc biệt không phải vì họ làm điều gì
+              quá lớn lao.
+            </p>
+            <p>
+              Mà chỉ đơn giản là sự xuất hiện của họ khiến những ngày bình
+              thường trở nên đáng mong chờ hơn.
+            </p>
+          </div>
+          <div class="next-row">
+            <button class="btn" data-next="ending">Tiếp</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ending -->
+      <section id="ending" class="panel">
+        <div class="container card ending-card">
+          <div class="final-lines" id="finalLines">
+            <p>Cảm ơn vì đã xuất hiện.</p>
+            <p>
+              Cảm ơn vì đã đồng hành cùng tớ trong khoảng thời gian vừa qua.
+            </p>
+            <p>Chúc cậu có một ngày 1/6 thật vui.</p>
+            <p>
+              Chúc cậu vượt qua kỳ thi đại học với kết quả mà mình mong muốn.
+            </p>
+            <p>Và...</p>
+            <p class="pause">(tạm dừng...)</p>
+            <p>
+              Tớ hy vọng sau kỳ thi này, chúng ta vẫn sẽ còn rất nhiều câu
+              chuyện để kể cho nhau nghe. ❤️
+            </p>
+          </div>
+          <h3 class="big">
+            Happy Children's Day, <span class="name">Lê Huyền Diệu</span> ✨
+          </h3>
+          <div class="next-row">
+            <button class="btn" id="hugBtn">Nhận một cái ôm từ xa 🤗</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="heartBurst" class="heart-burst" aria-hidden></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
